@@ -7,29 +7,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+        <div class="register-container" id="registerContainer">
+            <h2>Войти или Зарегистрироваться</h2>
+            <form id="registerForm" action="/register" method="POST">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Продолжить</button>
+            </form>
+            <button id="closeRegisterForm" class="close-button">Закрыть</button>
+        </div>
+    </div>
+
+
     <div class="container">
         <div class="all flex-row">
           <div class="menu flex-column">
             <div class="flex-row label-wrapper">
-              <img src="./orig.jpg" />
-              <h3 class="rugram-writing">Rugram</h3>
+              <img src="./foto/orig.jpg" />
+              <h3 class="rugram-writing" id="reloadButton">Rugram</h3>
             </div>
+            
             <div class="profil-img"><img src="" /></div>
             <div class="profil-info">
-              <h2 class="name">Kapusta</h2>
-              <h3 class="city">Москва</h3>
+              <h2 class="name"><button id="openRegisterForm" class="login-button">Войти</button></h2>
+              <h3 class="city">Город</h3>
               <div class="numbers">
                 <div class="post">
                   <p>Посты</p>
-                  <div class="post-num">116</div>
+                  <div class="post-num">0</div>
                 </div>
                 <div class="post">
                   <p>Подписчики</p>
-                  <div class="post-num">48m</div>
+                  <div class="post-num">0</div>
                 </div>
                 <div class="post">
                   <p>Подписки</p>
-                  <div class="post-num">48m</div>
+                  <div class="post-num">0</div>
                 </div>
               </div>
               <div class="menu-elements">
@@ -93,10 +113,10 @@
              </span>
             </div>
             <div class="cover-post">
-              <button class="button post-new">Создать Новый Пост</button>
+              <button id="openRegisterForm" class="button post-new">Создать новый пост</button>
               <span class="plus">
-             <img src="https://i.ibb.co/0YG23j8/plus-symbol.png" />
-             </span>
+                  <img src="https://i.ibb.co/0YG23j8/plus-symbol.png" />
+              </span>
             </div>
             <div class="mail-heart">
               <div class="icon1">
@@ -106,7 +126,7 @@
                 <img src="https://i.ibb.co/K91ZTyF/heart.png" />
               </div>
               <div class="person-radius">
-                <img src="./IMG_20230521_223943.jpg" />
+                <img src="./foto/IMG_20230521_223943.jpg" />
               </div>
             </div>
           </div>
@@ -190,7 +210,7 @@
                       </div>   
             </div>
             <div class="last-right">
-              <img src="./XVM3dba7820-2849-11ed-b593-9e67154cb4c9.webp" />
+              <img src="./foto/XVM3dba7820-2849-11ed-b593-9e67154cb4c9.webp" />
               <h2 class="name2">Крис Хемсворт</h2>
               <div class="follows"> 
                <div class="post">
@@ -229,4 +249,25 @@
         </div>
       </div>
 </body>
+<script>
+
+  const openRegisterFormButton = document.getElementById("openRegisterForm");
+  const registerContainer = document.getElementById("registerContainer");
+  const closeRegisterFormButton = document.getElementById("closeRegisterForm");
+  const reloadButton = document.getElementById("reloadButton");
+
+  openRegisterFormButton.addEventListener("click", function() {
+      registerContainer.style.display = "flex"; 
+  });
+
+  closeRegisterFormButton.addEventListener("click", function() {
+      registerContainer.style.display = "none"; 
+  });
+
+  reloadButton.addEventListener("click", function() {
+    location.reload();
+  });
+  
+</script>
+
 </html>
