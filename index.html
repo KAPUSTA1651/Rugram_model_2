@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="overlay" id="overlay"></div>
+  
         <div class="register-container" id="registerContainer">
             <h2>Войти или Зарегистрироваться</h2>
             <form id="registerForm" action="/register" method="POST">
@@ -24,6 +26,7 @@
             <button id="closeRegisterForm" class="close-button">Закрыть</button>
         </div>
     </div>
+    
 
 
     <div class="container">
@@ -250,24 +253,28 @@
       </div>
 </body>
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const overlay = document.getElementById("overlay");
+    const openRegisterFormButton = document.getElementById("openRegisterForm");
+    const registerContainer = document.getElementById("registerContainer");
+    const closeRegisterFormButton = document.getElementById("closeRegisterForm");
 
-  const openRegisterFormButton = document.getElementById("openRegisterForm");
-  const registerContainer = document.getElementById("registerContainer");
-  const closeRegisterFormButton = document.getElementById("closeRegisterForm");
-  const reloadButton = document.getElementById("reloadButton");
+    openRegisterFormButton.addEventListener("click", function() {
+        registerContainer.style.display = "block";
+        overlay.style.display = "block";
+    });
 
-  openRegisterFormButton.addEventListener("click", function() {
-      registerContainer.style.display = "flex"; 
-  });
+    closeRegisterFormButton.addEventListener("click", function() {
+        registerContainer.style.display = "none";
+        overlay.style.display = "none";
+    });
 
-  closeRegisterFormButton.addEventListener("click", function() {
-      registerContainer.style.display = "none"; 
-  });
+    overlay.addEventListener("click", function() {
+        registerContainer.style.display = "none";
+        overlay.style.display = "none";
+    });
+});
 
-  reloadButton.addEventListener("click", function() {
-    location.reload();
-  });
-  
 </script>
 
 </html>
