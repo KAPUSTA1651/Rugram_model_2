@@ -258,6 +258,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const openRegisterFormButton = document.getElementById("openRegisterForm");
     const registerContainer = document.getElementById("registerContainer");
     const closeRegisterFormButton = document.getElementById("closeRegisterForm");
+    const avatar = document.querySelector(".person-radius img");
+
 
     openRegisterFormButton.addEventListener("click", function() {
         registerContainer.style.display = "block";
@@ -274,6 +276,15 @@ document.addEventListener("DOMContentLoaded", function() {
         overlay.style.display = "none";
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const reloadButton = document.getElementById("reloadButton");
+
+    reloadButton.addEventListener("click", function() {
+        location.reload(); 
+    });
+});
+
 
 </script>
 
