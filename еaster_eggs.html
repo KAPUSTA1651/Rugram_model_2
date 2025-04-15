@@ -40,11 +40,39 @@
 
 
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <h1>"Мир нуждается в переменах,</h1>
-    <h1> люди должны научиться любить и идти на компромис, а не рарзурашить."</h1>
-    <a href="https://azbyka.ru/biblia/">Библия</a>
+    <h1>Создатель</h1>
+    <h1>*Kapusta</h1>
 
 </body>
+
+  <div id="easter-egg" style="
+  cursor: pointer; 
+  user-select: none; 
+  font-size: 50px; 
+  transition: transform 0.3s;
+">🐇</div>
+
+<script>
+  const egg = document.getElementById('easter-egg');
+  const phases = ['🐇', '🥕', '🐣', '🎉', '🍩', '✨', '🍫', '🐰']; 
+  let clicks = 0;
+  
+  egg.addEventListener('click', () => {
+    clicks++;
+    egg.textContent = phases[clicks % phases.length];
+ 
+    egg.style.transform = 'translateY(-20px) rotate(10deg)';
+    setTimeout(() => { egg.style.transform = 'translateY(0) rotate(0)'; }, 300);
+    
+    if (clicks % 5 === 0) {
+      
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 100, spread: 70 });
+      }
+    }
+  });
+</script>
 </html>
